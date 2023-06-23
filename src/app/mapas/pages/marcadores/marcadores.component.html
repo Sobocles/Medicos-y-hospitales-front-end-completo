@@ -1,0 +1,21 @@
+<!--primero se crean los macadores y se guardan en el arreglo al hacerle click en agregar en la pantalla del mapa-->
+<ul class="list-group">
+    <li class="list-group-item list-group-item-info"
+    (click)="crearMarcador()">
+        + Agregar
+    </li>
+
+    <!--LUEGO CON LOS MARCADORES YA CREADOS Y ALMACENADOS EN EL ARREGLO DE MARCADORES SE CONTINUA CON ESTO-->
+    <li class="list-group-item"     
+        *ngFor="let marcador of marcadores; let i = index"
+        [ngStyle]="{ 'background-color': marcador.color }" 
+        (dblclick)="borrarMarcador(i)"
+        (click)="flyTo( marcador.marker )"> 
+        marker {{ i + 1 }}
+    <!--[ngStyle] LE PONE EL MISMO COLOR DEL MARCADOR AL MENU QUE SE VA CREANDO A MEDIDA QUE SE CREAN MARCADORES-->
+    </li>
+</ul>
+
+
+
+<div #mapa class="mapa-container"></div>
